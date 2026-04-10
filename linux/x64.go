@@ -15,371 +15,371 @@ import (
 type SyscallNumber int
 
 const (
-	__x64_sys_read SyscallNumber = iota
-	__x64_sys_write
-	__x64_sys_open
-	__x64_sys_close
-	__x64_sys_newstat
-	__x64_sys_newfstat
-	__x64_sys_newlstat
-	__x64_sys_poll
-	__x64_sys_lseek
-	__x64_sys_mmap
-	__x64_sys_mprotect
-	__x64_sys_munmap
-	__x64_sys_brk
-	__x64_sys_rt_sigaction
-	__x64_sys_rt_sigprocmask
-	__x64_sys_rt_sigreturn
-	__x64_sys_ioctl
-	__x64_sys_pread64
-	__x64_sys_pwrite64
-	__x64_sys_readv
-	__x64_sys_writev
-	__x64_sys_access
-	__x64_sys_pipe
-	__x64_sys_select
-	__x64_sys_sched_yield
-	__x64_sys_mremap
-	__x64_sys_msync
-	__x64_sys_mincore
-	__x64_sys_madvise
-	__x64_sys_shmget
-	__x64_sys_shmat
-	__x64_sys_shmctl
-	__x64_sys_dup
-	__x64_sys_dup2
-	__x64_sys_pause
-	__x64_sys_nanosleep
-	__x64_sys_getitimer
-	__x64_sys_alarm
-	__x64_sys_setitimer
-	__x64_sys_getpid
+	__x64_sys_read = 0
+	__x64_sys_write = 1
+	__x64_sys_open = 2
+	__x64_sys_close = 3
+	__x64_sys_newstat = 4
+	__x64_sys_newfstat = 5
+	__x64_sys_newlstat = 6
+	__x64_sys_poll = 7
+	__x64_sys_lseek = 8
+	__x64_sys_mmap = 9
+	__x64_sys_mprotect = 10
+	__x64_sys_munmap = 11
+	__x64_sys_brk = 12
+	__x64_sys_rt_sigaction = 13
+	__x64_sys_rt_sigprocmask = 14
+	__x64_sys_rt_sigreturn = 15
+	__x64_sys_ioctl = 16
+	__x64_sys_pread64 = 17
+	__x64_sys_pwrite64 = 18
+	__x64_sys_readv = 19
+	__x64_sys_writev = 20
+	__x64_sys_access = 21
+	__x64_sys_pipe = 22
+	__x64_sys_select = 23
+	__x64_sys_sched_yield = 24
+	__x64_sys_mremap = 25
+	__x64_sys_msync = 26
+	__x64_sys_mincore = 27
+	__x64_sys_madvise = 28
+	__x64_sys_shmget = 29
+	__x64_sys_shmat = 30
+	__x64_sys_shmctl = 31
+	__x64_sys_dup = 32
+	__x64_sys_dup2 = 33
+	__x64_sys_pause = 34
+	__x64_sys_nanosleep = 35
+	__x64_sys_getitimer = 36
+	__x64_sys_alarm = 37
+	__x64_sys_setitimer = 38
+	__x64_sys_getpid = 39
 	__x64_sys_sendfile64
-	__x64_sys_socket
-	__x64_sys_connect
-	__x64_sys_accept
-	__x64_sys_sendto
-	__x64_sys_recvfrom
-	__x64_sys_sendmsg
-	__x64_sys_recvmsg
-	__x64_sys_shutdown
-	__x64_sys_bind
-	__x64_sys_listen
-	__x64_sys_getsockname
-	__x64_sys_getpeername
-	__x64_sys_socketpair
-	__x64_sys_setsockopt
-	__x64_sys_getsockopt
-	__x64_sys_clone
-	__x64_sys_fork
-	__x64_sys_vfork
-	__x64_sys_execve
-	__x64_sys_exit
-	__x64_sys_wait4
-	__x64_sys_kill
+	__x64_sys_socket = 41
+	__x64_sys_connect = 42
+	__x64_sys_accept = 43
+	__x64_sys_sendto = 44
+	__x64_sys_recvfrom = 45
+	__x64_sys_sendmsg = 46
+	__x64_sys_recvmsg = 47
+	__x64_sys_shutdown = 48
+	__x64_sys_bind = 49
+	__x64_sys_listen = 50
+	__x64_sys_getsockname = 51
+	__x64_sys_getpeername = 52
+	__x64_sys_socketpair = 53
+	__x64_sys_setsockopt = 54
+	__x64_sys_getsockopt = 55
+	__x64_sys_clone = 56
+	__x64_sys_fork = 57
+	__x64_sys_vfork = 58
+	__x64_sys_execve = 59
+	__x64_sys_exit = 60
+	__x64_sys_wait4 = 61
+	__x64_sys_kill = 62
 	__x64_sys_newuname
-	__x64_sys_semget
-	__x64_sys_semop
-	__x64_sys_semctl
-	__x64_sys_shmdt
-	__x64_sys_msgget
-	__x64_sys_msgsnd
-	__x64_sys_msgrcv
-	__x64_sys_msgctl
-	__x64_sys_fcntl
-	__x64_sys_flock
-	__x64_sys_fsync
-	__x64_sys_fdatasync
-	__x64_sys_truncate
-	__x64_sys_ftruncate
-	__x64_sys_getdents
-	__x64_sys_getcwd
-	__x64_sys_chdir
-	__x64_sys_fchdir
-	__x64_sys_rename
-	__x64_sys_mkdir
-	__x64_sys_rmdir
-	__x64_sys_creat
-	__x64_sys_link
-	__x64_sys_unlink
-	__x64_sys_symlink
-	__x64_sys_readlink
-	__x64_sys_chmod
-	__x64_sys_fchmod
-	__x64_sys_chown
-	__x64_sys_fchown
-	__x64_sys_lchown
-	__x64_sys_umask
-	__x64_sys_gettimeofday
-	__x64_sys_getrlimit
-	__x64_sys_getrusage
-	__x64_sys_sysinfo
-	__x64_sys_times
-	__x64_sys_ptrace
-	__x64_sys_getuid
-	__x64_sys_syslog
-	__x64_sys_getgid
-	__x64_sys_setuid
-	__x64_sys_setgid
-	__x64_sys_geteuid
-	__x64_sys_getegid
-	__x64_sys_setpgid
-	__x64_sys_getppid
-	__x64_sys_getpgrp
-	__x64_sys_setsid
-	__x64_sys_setreuid
-	__x64_sys_setregid
-	__x64_sys_getgroups
-	__x64_sys_setgroups
-	__x64_sys_setresuid
-	__x64_sys_getresuid
-	__x64_sys_setresgid
-	__x64_sys_getresgid
-	__x64_sys_getpgid
-	__x64_sys_setfsuid
-	__x64_sys_setfsgid
-	__x64_sys_getsid
-	__x64_sys_capget
-	__x64_sys_capset
-	__x64_sys_rt_sigpending
-	__x64_sys_rt_sigtimedwait
-	__x64_sys_rt_sigqueueinfo
-	__x64_sys_rt_sigsuspend
-	__x64_sys_sigaltstack
-	__x64_sys_utime
-	__x64_sys_mknod
-	__x64_sys_personality
-	__x64_sys_ustat
-	__x64_sys_statfs
-	__x64_sys_fstatfs
-	__x64_sys_sysfs
-	__x64_sys_getpriority
-	__x64_sys_setpriority
-	__x64_sys_sched_setparam
-	__x64_sys_sched_getparam
-	__x64_sys_sched_setscheduler
-	__x64_sys_sched_getscheduler
-	__x64_sys_sched_get_priority_max
-	__x64_sys_sched_get_priority_min
-	__x64_sys_sched_rr_get_interval
-	__x64_sys_mlock
-	__x64_sys_munlock
-	__x64_sys_mlockall
-	__x64_sys_munlockall
-	__x64_sys_vhangup
-	__x64_sys_modify_ldt
-	__x64_sys_pivot_root
-	__x64_sys_prctl
-	__x64_sys_arch_prctl
-	__x64_sys_adjtimex
-	__x64_sys_setrlimit
-	__x64_sys_chroot
-	__x64_sys_sync
-	__x64_sys_acct
-	__x64_sys_settimeofday
-	__x64_sys_mount
-	__x64_sys_umount
-	__x64_sys_swapon
-	__x64_sys_swapoff
-	__x64_sys_reboot
-	__x64_sys_sethostname
-	__x64_sys_setdomainname
-	__x64_sys_iopl
-	__x64_sys_ioperm
-	__x64_sys_init_module
-	__x64_sys_delete_module
-	__x64_sys_quotactl
-	__x64_sys_gettid
-	__x64_sys_readahead
-	__x64_sys_setxattr
-	__x64_sys_lsetxattr
-	__x64_sys_fsetxattr
-	__x64_sys_getxattr
-	__x64_sys_lgetxattr
-	__x64_sys_fgetxattr
-	__x64_sys_listxattr
-	__x64_sys_llistxattr
-	__x64_sys_flistxattr
-	__x64_sys_removexattr
-	__x64_sys_lremovexattr
-	__x64_sys_fremovexattr
-	__x64_sys_tkill
-	__x64_sys_time
-	__x64_sys_futex
-	__x64_sys_sched_setaffinity
-	__x64_sys_sched_getaffinity
-	__x64_sys_io_setup
-	__x64_sys_io_destroy
-	__x64_sys_io_getevents
-	__x64_sys_io_submit
-	__x64_sys_io_cancel
-	__x64_sys_epoll_create
-	__x64_sys_remap_file_pages
-	__x64_sys_getdents64
-	__x64_sys_set_tid_address
-	__x64_sys_restart_syscall
-	__x64_sys_semtimedop
-	__x64_sys_fadvise64
-	__x64_sys_timer_create
-	__x64_sys_timer_settime
-	__x64_sys_timer_gettime
-	__x64_sys_timer_getoverrun
-	__x64_sys_timer_delete
-	__x64_sys_clock_settime
-	__x64_sys_clock_gettime
-	__x64_sys_clock_getres
-	__x64_sys_clock_nanosleep
-	__x64_sys_exit_group
-	__x64_sys_epoll_wait
-	__x64_sys_epoll_ctl
-	__x64_sys_tgkill
-	__x64_sys_utimes
-	__x64_sys_mbind
-	__x64_sys_set_mempolicy
-	__x64_sys_get_mempolicy
-	__x64_sys_mq_open
-	__x64_sys_mq_unlink
-	__x64_sys_mq_timedsend
-	__x64_sys_mq_timedreceive
-	__x64_sys_mq_notify
-	__x64_sys_mq_getsetattr
-	__x64_sys_kexec_load
-	__x64_sys_waitid
-	__x64_sys_add_key
-	__x64_sys_request_key
-	__x64_sys_keyctl
-	__x64_sys_ioprio_set
-	__x64_sys_ioprio_get
-	__x64_sys_inotify_init
-	__x64_sys_inotify_add_watch
-	__x64_sys_inotify_rm_watch
-	__x64_sys_migrate_pages
-	__x64_sys_openat
-	__x64_sys_mkdirat
-	__x64_sys_mknodat
-	__x64_sys_fchownat
-	__x64_sys_futimesat
-	__x64_sys_newfstatat
-	__x64_sys_unlinkat
-	__x64_sys_renameat
-	__x64_sys_linkat
-	__x64_sys_symlinkat
-	__x64_sys_readlinkat
-	__x64_sys_fchmodat
-	__x64_sys_faccessat
-	__x64_sys_pselect6
-	__x64_sys_ppoll
-	__x64_sys_unshare
-	__x64_sys_set_robust_list
-	__x64_sys_get_robust_list
-	__x64_sys_splice
-	__x64_sys_tee
-	__x64_sys_sync_file_range
-	__x64_sys_vmsplice
-	__x64_sys_move_pages
-	__x64_sys_utimensat
-	__x64_sys_epoll_pwait
-	__x64_sys_signalfd
-	__x64_sys_timerfd_create
-	__x64_sys_eventfd
-	__x64_sys_fallocate
-	__x64_sys_timerfd_settime
-	__x64_sys_timerfd_gettime
-	__x64_sys_accept4
-	__x64_sys_signalfd4
-	__x64_sys_eventfd2
-	__x64_sys_epoll_create1
-	__x64_sys_dup3
-	__x64_sys_pipe2
-	__x64_sys_inotify_init1
-	__x64_sys_preadv
-	__x64_sys_pwritev
-	__x64_sys_rt_tgsigqueueinfo
-	__x64_sys_perf_event_open
-	__x64_sys_recvmmsg
-	__x64_sys_fanotify_init
-	__x64_sys_fanotify_mark
-	__x64_sys_prlimit64
-	__x64_sys_name_to_handle_at
-	__x64_sys_open_by_handle_at
-	__x64_sys_clock_adjtime
-	__x64_sys_syncfs
-	__x64_sys_sendmmsg
-	__x64_sys_setns
-	__x64_sys_getcpu
-	__x64_sys_process_vm_readv
-	__x64_sys_process_vm_writev
-	__x64_sys_kcmp
-	__x64_sys_finit_module
-	__x64_sys_sched_setattr
-	__x64_sys_sched_getattr
-	__x64_sys_renameat2
-	__x64_sys_seccomp
-	__x64_sys_getrandom
-	__x64_sys_memfd_create
-	__x64_sys_kexec_file_load
-	__x64_sys_bpf
-	__x64_sys_execveat
-	__x64_sys_userfaultfd
-	__x64_sys_membarrier
-	__x64_sys_mlock2
-	__x64_sys_copy_file_range
-	__x64_sys_preadv2
-	__x64_sys_pwritev2
-	__x64_sys_pkey_mprotect
-	__x64_sys_pkey_alloc
-	__x64_sys_pkey_free
-	__x64_sys_statx
-	__x64_sys_io_pgetevents
-	__x64_sys_rseq
+	__x64_sys_semget = 64
+	__x64_sys_semop = 65
+	__x64_sys_semctl = 66
+	__x64_sys_shmdt = 67
+	__x64_sys_msgget = 68
+	__x64_sys_msgsnd = 69
+	__x64_sys_msgrcv = 70
+	__x64_sys_msgctl = 71
+	__x64_sys_fcntl = 72
+	__x64_sys_flock = 73
+	__x64_sys_fsync = 74
+	__x64_sys_fdatasync = 75
+	__x64_sys_truncate = 76
+	__x64_sys_ftruncate = 77
+	__x64_sys_getdents = 78
+	__x64_sys_getcwd = 79
+	__x64_sys_chdir = 80
+	__x64_sys_fchdir = 81
+	__x64_sys_rename = 82
+	__x64_sys_mkdir = 83
+	__x64_sys_rmdir = 84
+	__x64_sys_creat = 85
+	__x64_sys_link = 86
+	__x64_sys_unlink = 87
+	__x64_sys_symlink = 88
+	__x64_sys_readlink = 89
+	__x64_sys_chmod = 90
+	__x64_sys_fchmod = 91
+	__x64_sys_chown = 92
+	__x64_sys_fchown = 93
+	__x64_sys_lchown = 94
+	__x64_sys_umask = 95
+	__x64_sys_gettimeofday = 96
+	__x64_sys_getrlimit = 97
+	__x64_sys_getrusage = 98
+	__x64_sys_sysinfo = 99
+	__x64_sys_times = 100
+	__x64_sys_ptrace = 101
+	__x64_sys_getuid = 102
+	__x64_sys_syslog = 103
+	__x64_sys_getgid = 104
+	__x64_sys_setuid = 105
+	__x64_sys_setgid = 106
+	__x64_sys_geteuid = 107
+	__x64_sys_getegid = 108
+	__x64_sys_setpgid = 109
+	__x64_sys_getppid = 110
+	__x64_sys_getpgrp = 111
+	__x64_sys_setsid = 112
+	__x64_sys_setreuid = 113
+	__x64_sys_setregid = 114
+	__x64_sys_getgroups = 115
+	__x64_sys_setgroups = 116
+	__x64_sys_setresuid = 117
+	__x64_sys_getresuid = 118
+	__x64_sys_setresgid = 119
+	__x64_sys_getresgid = 120
+	__x64_sys_getpgid = 121
+	__x64_sys_setfsuid = 122
+	__x64_sys_setfsgid = 123
+	__x64_sys_getsid = 124
+	__x64_sys_capget = 125
+	__x64_sys_capset = 126
+	__x64_sys_rt_sigpending = 127
+	__x64_sys_rt_sigtimedwait = 128
+	__x64_sys_rt_sigqueueinfo = 129
+	__x64_sys_rt_sigsuspend = 130
+	__x64_sys_sigaltstack = 131
+	__x64_sys_utime = 132
+	__x64_sys_mknod = 133
+	__x64_sys_personality = 135
+	__x64_sys_ustat = 136
+	__x64_sys_statfs = 137
+	__x64_sys_fstatfs = 138
+	__x64_sys_sysfs = 139
+	__x64_sys_getpriority = 140
+	__x64_sys_setpriority = 141
+	__x64_sys_sched_setparam = 142
+	__x64_sys_sched_getparam = 143
+	__x64_sys_sched_setscheduler = 144
+	__x64_sys_sched_getscheduler = 145
+	__x64_sys_sched_get_priority_max = 146
+	__x64_sys_sched_get_priority_min = 147
+	__x64_sys_sched_rr_get_interval = 148
+	__x64_sys_mlock = 149
+	__x64_sys_munlock = 150
+	__x64_sys_mlockall = 151
+	__x64_sys_munlockall = 152
+	__x64_sys_vhangup = 153
+	__x64_sys_modify_ldt = 154
+	__x64_sys_pivot_root = 155
+	__x64_sys_prctl = 156
+	__x64_sys_arch_prctl = 157
+	__x64_sys_adjtimex = 158
+	__x64_sys_setrlimit = 159
+	__x64_sys_chroot = 160
+	__x64_sys_sync = 161
+	__x64_sys_acct = 162
+	__x64_sys_settimeofday = 163
+	__x64_sys_mount = 164
+	__x64_sys_umount = 165
+	__x64_sys_swapon = 166
+	__x64_sys_swapoff = 167
+	__x64_sys_reboot = 168
+	__x64_sys_sethostname = 169
+	__x64_sys_setdomainname = 170
+	__x64_sys_iopl = 171
+	__x64_sys_ioperm = 172
+	__x64_sys_init_module = 174
+	__x64_sys_delete_module = 175
+	__x64_sys_quotactl = 178
+	__x64_sys_gettid = 185
+	__x64_sys_readahead = 186
+	__x64_sys_setxattr = 187
+	__x64_sys_lsetxattr = 188
+	__x64_sys_fsetxattr = 189
+	__x64_sys_getxattr = 190
+	__x64_sys_lgetxattr = 191
+	__x64_sys_fgetxattr = 192
+	__x64_sys_listxattr = 193
+	__x64_sys_llistxattr = 194
+	__x64_sys_flistxattr = 195
+	__x64_sys_removexattr = 196
+	__x64_sys_lremovexattr = 197
+	__x64_sys_fremovexattr = 198
+	__x64_sys_tkill = 199
+	__x64_sys_time = 200
+	__x64_sys_futex = 201
+	__x64_sys_sched_setaffinity = 202
+	__x64_sys_sched_getaffinity = 203
+	__x64_sys_io_setup = 205
+	__x64_sys_io_destroy = 206
+	__x64_sys_io_getevents = 207
+	__x64_sys_io_submit = 208
+	__x64_sys_io_cancel = 209
+	__x64_sys_epoll_create = 212
+	__x64_sys_remap_file_pages = 215
+	__x64_sys_getdents64 = 216
+	__x64_sys_set_tid_address = 217
+	__x64_sys_restart_syscall = 218
+	__x64_sys_semtimedop = 219
+	__x64_sys_fadvise64 = 220
+	__x64_sys_timer_create = 221
+	__x64_sys_timer_settime = 222
+	__x64_sys_timer_gettime = 223
+	__x64_sys_timer_getoverrun = 224
+	__x64_sys_timer_delete = 225
+	__x64_sys_clock_settime = 226
+	__x64_sys_clock_gettime = 227
+	__x64_sys_clock_getres = 228
+	__x64_sys_clock_nanosleep = 229
+	__x64_sys_exit_group = 230
+	__x64_sys_epoll_wait = 231
+	__x64_sys_epoll_ctl = 232
+	__x64_sys_tgkill = 233
+	__x64_sys_utimes = 234
+	__x64_sys_mbind = 236
+	__x64_sys_set_mempolicy = 237
+	__x64_sys_get_mempolicy = 238
+	__x64_sys_mq_open = 239
+	__x64_sys_mq_unlink = 240
+	__x64_sys_mq_timedsend = 241
+	__x64_sys_mq_timedreceive = 242
+	__x64_sys_mq_notify = 243
+	__x64_sys_mq_getsetattr = 244
+	__x64_sys_kexec_load = 245
+	__x64_sys_waitid = 246
+	__x64_sys_add_key = 247
+	__x64_sys_request_key = 248
+	__x64_sys_keyctl = 249
+	__x64_sys_ioprio_set = 250
+	__x64_sys_ioprio_get = 251
+	__x64_sys_inotify_init = 252
+	__x64_sys_inotify_add_watch = 253
+	__x64_sys_inotify_rm_watch = 254
+	__x64_sys_migrate_pages = 255
+	__x64_sys_openat = 256
+	__x64_sys_mkdirat = 257
+	__x64_sys_mknodat = 258
+	__x64_sys_fchownat = 259
+	__x64_sys_futimesat = 260
+	__x64_sys_newfstatat = 261
+	__x64_sys_unlinkat = 262
+	__x64_sys_renameat = 263
+	__x64_sys_linkat = 264
+	__x64_sys_symlinkat = 265
+	__x64_sys_readlinkat = 266
+	__x64_sys_fchmodat = 267
+	__x64_sys_faccessat = 268
+	__x64_sys_pselect6 = 269
+	__x64_sys_ppoll = 270
+	__x64_sys_unshare = 271
+	__x64_sys_set_robust_list = 272
+	__x64_sys_get_robust_list = 273
+	__x64_sys_splice = 274
+	__x64_sys_tee = 275
+	__x64_sys_sync_file_range = 276
+	__x64_sys_vmsplice = 277
+	__x64_sys_move_pages = 278
+	__x64_sys_utimensat = 279
+	__x64_sys_epoll_pwait = 280
+	__x64_sys_signalfd = 281
+	__x64_sys_timerfd_create = 282
+	__x64_sys_eventfd = 283
+	__x64_sys_fallocate = 284
+	__x64_sys_timerfd_settime = 285
+	__x64_sys_timerfd_gettime = 286
+	__x64_sys_accept4 = 287
+	__x64_sys_signalfd4 = 288
+	__x64_sys_eventfd2 = 289
+	__x64_sys_epoll_create1 = 290
+	__x64_sys_dup3 = 291
+	__x64_sys_pipe2 = 292
+	__x64_sys_inotify_init1 = 293
+	__x64_sys_preadv = 294
+	__x64_sys_pwritev = 295
+	__x64_sys_rt_tgsigqueueinfo = 296
+	__x64_sys_perf_event_open = 297
+	__x64_sys_recvmmsg = 298
+	__x64_sys_fanotify_init = 299
+	__x64_sys_fanotify_mark = 300
+	__x64_sys_prlimit64 = 301
+	__x64_sys_name_to_handle_at = 302
+	__x64_sys_open_by_handle_at = 303
+	__x64_sys_clock_adjtime = 304
+	__x64_sys_syncfs = 305
+	__x64_sys_sendmmsg = 306
+	__x64_sys_setns = 307
+	__x64_sys_getcpu = 308
+	__x64_sys_process_vm_readv = 309
+	__x64_sys_process_vm_writev = 310
+	__x64_sys_kcmp = 311
+	__x64_sys_finit_module = 312
+	__x64_sys_sched_setattr = 313
+	__x64_sys_sched_getattr = 314
+	__x64_sys_renameat2 = 315
+	__x64_sys_seccomp = 316
+	__x64_sys_getrandom = 317
+	__x64_sys_memfd_create = 318
+	__x64_sys_kexec_file_load = 319
+	__x64_sys_bpf = 320
+	__x64_sys_execveat = 321
+	__x64_sys_userfaultfd = 322
+	__x64_sys_membarrier = 323
+	__x64_sys_mlock2 = 324
+	__x64_sys_copy_file_range = 325
+	__x64_sys_preadv2 = 326
+	__x64_sys_pwritev2 = 327
+	__x64_sys_pkey_mprotect = 328
+	__x64_sys_pkey_alloc = 329
+	__x64_sys_pkey_free = 330
+	__x64_sys_statx = 331
+	__x64_sys_io_pgetevents = 332
+	__x64_sys_rseq = 333
 	__x64_sys_uretprobe
-	__x64_sys_pidfd_send_signal
-	__x64_sys_io_uring_setup
-	__x64_sys_io_uring_enter
-	__x64_sys_io_uring_register
-	__x64_sys_open_tree
-	__x64_sys_move_mount
-	__x64_sys_fsopen
-	__x64_sys_fsconfig
-	__x64_sys_fsmount
-	__x64_sys_fspick
-	__x64_sys_pidfd_open
-	__x64_sys_clone3
-	__x64_sys_close_range
-	__x64_sys_openat2
-	__x64_sys_pidfd_getfd
-	__x64_sys_faccessat2
-	__x64_sys_process_madvise
-	__x64_sys_epoll_pwait2
-	__x64_sys_mount_setattr
-	__x64_sys_quotactl_fd
-	__x64_sys_landlock_create_ruleset
-	__x64_sys_landlock_add_rule
-	__x64_sys_landlock_restrict_self
-	__x64_sys_memfd_secret
-	__x64_sys_process_mrelease
-	__x64_sys_futex_waitv
-	__x64_sys_set_mempolicy_home_node
-	__x64_sys_cachestat
-	__x64_sys_fchmodat2
-	__x64_sys_map_shadow_stack
-	__x64_sys_futex_wake
-	__x64_sys_futex_wait
-	__x64_sys_futex_requeue
-	__x64_sys_statmount
-	__x64_sys_listmount
-	__x64_sys_lsm_get_self_attr
-	__x64_sys_lsm_set_self_attr
-	__x64_sys_lsm_list_modules
-	__x64_sys_mseal
-	__x64_sys_setxattrat
-	__x64_sys_getxattrat
-	__x64_sys_listxattrat
-	__x64_sys_removexattrat
-	__x64_sys_open_tree_attr
-	__x64_sys_file_getattr
-	__x64_sys_file_setattr
+	__x64_sys_pidfd_send_signal = 334
+	__x64_sys_io_uring_setup = 335
+	__x64_sys_io_uring_enter = 336
+	__x64_sys_io_uring_register = 337
+	__x64_sys_open_tree = 338
+	__x64_sys_move_mount = 339
+	__x64_sys_fsopen = 340
+	__x64_sys_fsconfig = 341
+	__x64_sys_fsmount = 342
+	__x64_sys_fspick = 343
+	__x64_sys_pidfd_open = 344
+	__x64_sys_clone3 = 345
+	__x64_sys_close_range = 346
+	__x64_sys_openat2 = 347
+	__x64_sys_pidfd_getfd = 348
+	__x64_sys_faccessat2 = 349
+	__x64_sys_process_madvise = 350
+	__x64_sys_epoll_pwait2 = 351
+	__x64_sys_mount_setattr = 352
+	__x64_sys_quotactl_fd = 353
+	__x64_sys_landlock_create_ruleset = 354
+	__x64_sys_landlock_add_rule = 355
+	__x64_sys_landlock_restrict_self = 356
+	__x64_sys_memfd_secret = 357
+	__x64_sys_process_mrelease = 358
+	__x64_sys_futex_waitv = 359
+	__x64_sys_set_mempolicy_home_node = 360
+	__x64_sys_cachestat = 361
+	__x64_sys_fchmodat2 = 362
+	__x64_sys_map_shadow_stack = 363
+	__x64_sys_futex_wake = 364
+	__x64_sys_futex_wait = 365
+	__x64_sys_futex_requeue = 366
+	__x64_sys_statmount = 367
+	__x64_sys_listmount = 368
+	__x64_sys_lsm_get_self_attr = 369
+	__x64_sys_lsm_set_self_attr = 370
+	__x64_sys_lsm_list_modules = 371
+	__x64_sys_mseal = 372
+	__x64_sys_setxattrat = 373
+	__x64_sys_getxattrat = 374
+	__x64_sys_listxattrat = 375
+	__x64_sys_removexattrat = 376
+	__x64_sys_open_tree_attr = 377
+	__x64_sys_file_getattr = 378
+	__x64_sys_file_setattr = 379
 )
 
 // Read reads up to len(buf) bytes from the file descriptor fd into buf.
