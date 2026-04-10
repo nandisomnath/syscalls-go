@@ -1110,89 +1110,8 @@ func Statfs(pathname []byte, buf unsafe.Pointer) (uintptr, syscall.Errno) {
 	return r1, err
 }
 
-// Fstatfs gets filesystem statistics.
-// It retrieves statistics for file descriptor fd into buf.
-// It returns 0 on success and any error encountered.
-func Fstatfs(fd uint, buf unsafe.Pointer) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_fstatfs), uintptr(fd), uintptr(buf), 0)
-	return r1, err
-}
-
-// Sysfs provides filesystem sysfs operations.
-// It performs operation option with arguments arg1 and arg2.
-// It returns the result and any error encountered.
-func Sysfs(option int, arg1 uintptr, arg2 uintptr) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sysfs), uintptr(option), arg1, arg2)
-	return r1, err
-}
-
-func Getpriority(which int, who int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_getpriority), uintptr(which), uintptr(who), 0)
-	return r1, err
-}
-
-func Setpriority(which int, who int, niceval int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_setpriority), uintptr(which), uintptr(who), uintptr(niceval))
-	return r1, err
-}
-
-func SchedSetparam(pid int, param unsafe.Pointer) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_setparam), uintptr(pid), uintptr(param), 0)
-	return r1, err
-}
-
-func SchedGetparam(pid int, param unsafe.Pointer) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_getparam), uintptr(pid), uintptr(param), 0)
-	return r1, err
-}
-
 func SchedSetscheduler(pid int, policy int, param unsafe.Pointer) (uintptr, syscall.Errno) {
 	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_setscheduler), uintptr(pid), uintptr(policy), uintptr(param))
-	return r1, err
-}
-
-func SchedGetscheduler(pid int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_getscheduler), uintptr(pid), 0, 0)
-	return r1, err
-}
-
-func SchedGetPriorityMax(policy int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_get_priority_max), uintptr(policy), 0, 0)
-	return r1, err
-}
-
-func SchedGetPriorityMin(policy int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_get_priority_min), uintptr(policy), 0, 0)
-	return r1, err
-}
-
-func SchedRrGetInterval(pid int, interval unsafe.Pointer) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_sched_rr_get_interval), uintptr(pid), uintptr(interval), 0)
-	return r1, err
-}
-
-func Mlock(start uintptr, length uintptr) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_mlock), start, length, 0)
-	return r1, err
-}
-
-func Munlock(start uintptr, length uintptr) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_munlock), start, length, 0)
-	return r1, err
-}
-
-func Mlockall(flags int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_mlockall), uintptr(flags), 0, 0)
-	return r1, err
-}
-
-func Munlockall() (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_munlockall), 0, 0, 0)
-	return r1, err
-}
-
-func Vhangup() (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_vhangup), 0, 0, 0)
 	return r1, err
 }
 
@@ -2102,7 +2021,7 @@ func PidfdGetfd(pidfd int, fd int, flags uint) (uintptr, syscall.Errno) {
 }
 
 func Faccessat2(dfd int, filename []byte, mode int, flags int) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_faccessat2), uintptr(dfd), uintptr(unsafe.Pointer(&filename[0])), uintptr(mode), uintptr(flags))
+	r1, _, err := syscall.Syscall6(uintptr(__x64_sys_faccessat2), uintptr(dfd), uintptr(unsafe.Pointer(&filename[0])), uintptr(mode), uintptr(flags), 0, 0)
 	return r1, err
 }
 
