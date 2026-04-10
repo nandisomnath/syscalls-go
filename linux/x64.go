@@ -1105,22 +1105,6 @@ func Mknod(filename []byte, mode uint, dev uint) (uintptr, syscall.Errno) {
 	return r1, err
 }
 
-// Personality sets the process execution domain.
-// It sets the personality to personality.
-// It returns the previous personality and any error encountered.
-func Personality(personality uint) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_personality), uintptr(personality), 0, 0)
-	return r1, err
-}
-
-// Ustat gets filesystem statistics.
-// It retrieves statistics for device dev into ubuf.
-// It returns 0 on success and any error encountered.
-func Ustat(dev uint, ubuf unsafe.Pointer) (uintptr, syscall.Errno) {
-	r1, _, err := syscall.Syscall(uintptr(__x64_sys_ustat), uintptr(dev), uintptr(ubuf), 0)
-	return r1, err
-}
-
 func Statfs(pathname []byte, buf unsafe.Pointer) (uintptr, syscall.Errno) {
 	r1, _, err := syscall.Syscall(uintptr(__x64_sys_statfs), uintptr(unsafe.Pointer(&pathname[0])), uintptr(buf), 0)
 	return r1, err
